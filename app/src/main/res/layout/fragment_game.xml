@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".GameFragment">
+    <data>
+<variable
+    name="game"
+    type="com.example.androidtrivia.GameFragment" />
+    </data>
+
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        android:fillViewport="true">
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/framelayout"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <ImageView
+           android:id="@+id/questionImage"
+           android:layout_width="0dp"
+           android:layout_height="192dp"
+           android:layout_marginStart="8dp"
+           android:layout_marginTop="16dp"
+           android:layout_marginEnd="8dp"
+           android:layout_marginBottom="16dp"
+           android:scaleType="fitCenter"
+           android:src="@drawable/android_category_simple"
+           app:layout_constraintBottom_toTopOf="@+id/QuestionText"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.0"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintVertical_chainStyle="packed" />
+
+       <TextView
+           android:id="@+id/QuestionText"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="32dp"
+           android:layout_marginTop="12dp"
+           android:layout_marginEnd="32dp"
+           android:text="@{game.currentquestion.text}"
+           android:textSize="28sp"
+           android:textStyle="bold"
+           android:typeface="normal"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/questionImage"
+           tools:text="What color is the Android mascot?" />
+<RadioGroup
+    android:id="@+id/questionRadioGroup"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/QuestionText"
+     android:layout_marginStart="32dp"
+    android:layout_marginEnd="32dp"
+    android:layout_marginTop="16dp"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/firstAnswerRadioButton"
+        android:layout_marginBottom="8dp"
+        android:checked="true"
+        android:text="@{game.answers[0]}"
+        android:textSize="20sp"
+        tools:text="Blue"/>
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/secondAnswerRadioButton"
+        android:layout_marginBottom="8dp"
+        android:checked="true"
+        android:text="@{game.answers[1]}"
+        android:textSize="20sp"
+        tools:text="Blue"/>
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/thirdAnswerRadioButton"
+        android:layout_marginBottom="8dp"
+        android:checked="true"
+        android:text="@{game.answers[2]}"
+        android:textSize="20sp"
+        tools:text="Blue"/>
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fourthAnswerRadioButton"
+        android:layout_marginBottom="8dp"
+        android:checked="true"
+        android:text="@{game.answers[3]}"
+        android:textSize="20sp"
+        tools:text="Blue"/>
+
+</RadioGroup>
+
+       <Button
+           android:id="@+id/SubmitButton"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="SUBMIT"
+           android:textStyle="bold"
+           android:typeface="normal"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/questionRadioGroup"
+           android:layout_marginTop="16dp"
+           android:textSize="18dp"/>
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+</layout>
